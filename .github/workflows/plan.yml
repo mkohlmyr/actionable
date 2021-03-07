@@ -1,0 +1,13 @@
+name: plan
+
+on: [pull_request]
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    name: Create a terraform plan
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
