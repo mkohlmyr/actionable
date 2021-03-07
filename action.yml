@@ -8,4 +8,5 @@ inputs:
 runs:
   using: docker
   image: ../containers/terraform.dockerfile
-  entrypoint: ${{ inputs.script }}
+  entrypoint:
+    - ${{ inputs.script }}
