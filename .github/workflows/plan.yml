@@ -16,6 +16,6 @@ jobs:
       - name: terraform plan
         uses: dflook/terraform-plan@v1
         with:
-          path: application.tf
+          path: ./application.tf
       - name: Hello World
         run: echo "hello world!"
