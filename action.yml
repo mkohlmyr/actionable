@@ -7,5 +7,5 @@ inputs:
 
 runs:
   using: docker
-  image: ../containers/terraform.dockerfile
+  image: .github/containers/terraform.dockerfile
   entrypoint: plan.sh
