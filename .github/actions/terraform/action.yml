@@ -1,0 +1,11 @@
+name: terraform
+
+inputs:
+  script:
+    required: true
+
+runs:
+  using: docker
+  image: ../containers/terraform.dockerfile
+  args:
+    - ${{ inputs.script }}

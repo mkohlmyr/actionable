@@ -9,5 +9,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Test TF
+        uses: ../actions/terraform/
+        with:
+          script: plan.sh
       - name: Hello World
         run: echo "hello world!"
