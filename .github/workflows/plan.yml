@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Test TF
         id: terraform
-        uses: ../actions/terraform/
+        uses: ./
         with:
           script: plan.sh
       - name: Hello World
