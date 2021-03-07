@@ -10,6 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test TF
+        id: terraform
         uses: ../actions/terraform/
         with:
           script: plan.sh
