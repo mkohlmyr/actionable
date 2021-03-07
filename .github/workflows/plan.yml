@@ -6,7 +6,7 @@ jobs:
   plan:
     runs-on: ubuntu-latest
     name: Terraform plan
-
+    environment: production
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
