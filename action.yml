@@ -8,4 +8,4 @@ inputs:
 runs:
   using: docker
   image: ../containers/terraform.dockerfile
-  entrypoint: '${{ inputs.script }}'
+  entrypoint: plan.sh
