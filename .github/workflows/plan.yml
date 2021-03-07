@@ -13,6 +13,6 @@ jobs:
         id: terraform
         uses: ./
         with:
-          script: plan.sh
+          script: "some string goes here"
       - name: Hello World
         run: echo "hello world!"
