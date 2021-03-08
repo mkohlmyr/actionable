@@ -25,7 +25,8 @@ resource "aws_iam_policy" "policy" {
                   "iam:AttachUserPolicy",
                   "iam:DeletePolicy",
                   "iam:GetUser",
-                  "iam:DetachUserPolicy"
+                  "iam:DetachUserPolicy",
+                  "iam:CreateUser"
                 ],
                 "Resource": [
                     "arn:aws:iam::278755489513:user/*",
