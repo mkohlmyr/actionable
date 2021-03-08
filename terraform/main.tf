@@ -2,20 +2,43 @@ provider "aws" {
   region = "eu-west-2"
 }
 
-resource "aws_s3_bucket" "terraform_state" {
-  bucket = "actionable-terraform-remote-state"
-  # Enable versioning so we can see the full revision history of our
-  # state files
-  versioning {
-    enabled = true
-  }
+resource "aws_iam_user" "user" {
+  name = "github"
+}
 
-  # Enable server-side encryption by default
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
+resource "aws_iam_policy" "policy" {
+  name        = "github-policy"
+  policy      = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                  "iam:CreatePolicy",
+                  "iam:GetUserPolicy",
+                  "iam:UpdateUser",
+                  "iam:PutUserPolicy",
+                  "iam:DeleteUserPolicy",
+                  "iam:AttachUserPolicy",
+                  "iam:DeletePolicy",
+                  "iam:GetUser",
+                  "iam:DetachUserPolicy"
+                ],
+                "Resource": [
+                    "arn:aws:iam::278755489513:user/*",
+                    "arn:aws:iam::278755489513:policy/*"
+                ]
+            }
+        ]
       }
-    }
-  }
+    ]
+  })
+}
+
+resource "aws_iam_user_policy_attachment" "test-attach" {
+  user       = aws_iam_user.user.name
+  policy_arn = aws_iam_policy.policy.arn
 }
