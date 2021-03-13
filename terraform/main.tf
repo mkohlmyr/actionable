@@ -17,16 +17,17 @@ resource "aws_iam_policy" "policy" {
             {
                 "Effect": "Allow",
                 "Action": [
+                  "iam:DeletePolicy",
+                  "iam:UpdatePolicy",
                   "iam:CreatePolicy",
                   "iam:GetUserPolicy",
-                  "iam:UpdateUser",
                   "iam:PutUserPolicy",
                   "iam:DeleteUserPolicy",
                   "iam:AttachUserPolicy",
-                  "iam:DeletePolicy",
-                  "iam:GetUser",
                   "iam:DetachUserPolicy",
-                  "iam:CreateUser"
+                  "iam:GetUser",
+                  "iam:CreateUser",
+                  "iam:UpdateUser"
                 ],
                 "Resource": [
                     "arn:aws:iam::278755489513:user/*",
